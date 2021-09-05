@@ -1,12 +1,18 @@
+
 import React, { useState, useEffect } from 'react';
 import Pregunta from './components/Pregunta';
 import Formulario from './components/Formulario';
 import Listado from './components/Listado';
 import ControlPresupuesto from './components/ControlPresupuesto';
 
+
+
+
 function App() {
 
   //definir el state
+
+  
   const [ presupuesto, guardarPresupuesto ] = useState(0);
   const [ restante, guardarRestante ] = useState(0);
   const [ mostrarpregunta, actualizarPregunta] = useState(true);
@@ -14,23 +20,27 @@ function App() {
   const [ gasto, guardarGasto ] = useState({});
   const [ crearGasto, guardarCrearGasto ] = useState(false);
 
-  //useEffect que actualiza el restante
+  //useEffect que actualiza el restante 
   useEffect(() => {
+    // eslint-disable-next-line
     if (crearGasto) {
       guardarGastos([
+        // eslint-disable-next-line
         ...gastos,
         gasto
       ]);
 
       //restar gasto
+      // eslint-disable-next-line
       const presupuestoRestante = restante - gasto.cantidad;
       guardarRestante(presupuestoRestante);
       
       //resetear a false
       guardarCrearGasto(false);
     }
+    // eslint-disable-next-line
   }, [gasto]);
-
+ 
  
   return (
     
